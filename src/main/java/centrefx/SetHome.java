@@ -11,7 +11,6 @@ public class SetHome implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
         CommandRegister.registerCommands();
         EventRegister.register();
     }
