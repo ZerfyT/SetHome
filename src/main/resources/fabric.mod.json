@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "sethome",
+  "version": "${version}",
+  "name": "SetHome",
+  "description": "A Custom Command to Change Worldspawn Point.",
+  "authors": [
+    "dark19"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/sethome/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "centrefx.SetHome"
+    ],
+    "client": [],
+    "server": []
+  },
+  "mixins": [
+    "sethome.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.8",
+    "fabric": "*"
+  }
+}
