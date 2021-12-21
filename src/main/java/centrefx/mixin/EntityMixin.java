@@ -33,8 +33,6 @@ public abstract class EntityMixin implements IEntityDataSaver {
 
     @Inject(method = "readNbt", at = @At("HEAD"))
     protected void readLocation(NbtCompound nbt, CallbackInfo ci) {
-//        if (nbt.contains("homepos", NbtType.DOUBLE)) {
-//            homePositionList = nbt.getList("homepos", NbtType.DOUBLE);
         if (nbt.contains("homepos")) {
             homePositionList = nbt.getList("homepos", NbtType.DOUBLE);
         }
