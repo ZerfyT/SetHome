@@ -1,8 +1,8 @@
 package centrefx.util;
 
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 
 public interface IEntityDataSaver {
 
-    NbtCompound getPersistentData();
+    NbtList getHomePosition();
 }

@@ -2,6 +2,7 @@ package centrefx.command;
 
 import centrefx.util.IEntityDataSaver;
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.LiteralText;
@@ -12,11 +13,12 @@ public class ReturnHomeCommand {
         dispatcher.register(CommandManager.literal("home").then(CommandManager.literal("return").executes(context -> {
 
             IEntityDataSaver player = (IEntityDataSaver) context.getSource().getPlayer();
-            int[] homePos = player.getPersistentData().getIntArray("homepos");
+//            int[] homePos = player.getHomePosition().getIntArray("homepos");
+            NbtList homePosList = player.getHomePosition();
 
-            if (homePos.length != 0) {
+            if (!homePosList.isEmpty()) {
 //                int[] playerPos = player.getPersistentData().getIntArray("homepos");
-                context.getSource().getPlayer().requestTeleport(homePos[0], homePos[1], homePos[2]);
+                context.getSource().getPlayer().requestTeleport(homePosList.getDouble(0), homePosList.getDouble(1), homePosList.getDouble(2));
                 context.getSource().sendFeedback(new LiteralText("Player Returned Home."), true);
                 return 1;
             } else {
