@@ -13,11 +13,9 @@ public class ReturnHomeCommand {
         dispatcher.register(CommandManager.literal("home").then(CommandManager.literal("return").executes(context -> {
 
             IEntityDataSaver player = (IEntityDataSaver) context.getSource().getPlayer();
-//            int[] homePos = player.getHomePosition().getIntArray("homepos");
             NbtList homePosList = player.getHomePosition();
 
             if (!homePosList.isEmpty()) {
-//                int[] playerPos = player.getPersistentData().getIntArray("homepos");
                 context.getSource().getPlayer().requestTeleport(homePosList.getDouble(0), homePosList.getDouble(1), homePosList.getDouble(2));
                 context.getSource().sendFeedback(new LiteralText("Player Returned Home."), true);
                 return 1;
