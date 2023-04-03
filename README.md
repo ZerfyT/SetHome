@@ -1,2 +1,2 @@
-# SetHome
-A custom command to set home spawn Point.
+# SetHome - Minecraft
+A simple minecraft java mod to set home spawn point.
